@@ -15,7 +15,7 @@ export default function Sectors() {
       {/* Decorative background with generated image */}
       <div className="absolute inset-0 z-0 opacity-10 dark:opacity-20">
         <Image 
-          src="/talent_sectors.png" 
+          src={data.images?.sectors || "/talent_sectors.png"} 
           alt="Corporate Network Background" 
           fill 
           className="object-cover"

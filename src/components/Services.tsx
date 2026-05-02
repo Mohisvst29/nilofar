@@ -12,8 +12,17 @@ export default function Services() {
   const icons = [Briefcase, Users, Plane, ShieldCheck];
 
   return (
-    <section id="services" className="py-16 lg:py-24 bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="relative py-16 lg:py-24 bg-gray-50 dark:bg-gray-900 overflow-hidden">
+      {data.images?.services && (
+        <div className="absolute inset-0 z-0 opacity-5">
+          <img 
+            src={data.images.services} 
+            alt="Services Background" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
