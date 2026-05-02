@@ -17,6 +17,7 @@ export const data = {
   },
   images: {
     hero: "",
+    heroImages: [],
     about: "/talent_about.png",
     services: "",
     sectors: "/talent_sectors.png",

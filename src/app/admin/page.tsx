@@ -416,8 +416,45 @@ export default function AdminDashboard() {
                   />
                 </div>
 
+                {/* Hero Slider Images */}
+                <div className="border border-gray-200 dark:border-gray-700 p-4 rounded-2xl md:col-span-2">
+                  <label className="block text-sm font-bold mb-4">Hero Slider Images (Multiple)</label>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                    {data.images?.heroImages?.map((img: string, i: number) => (
+                      <div key={i} className="relative group">
+                        <img src={img} alt={`Hero ${i}`} className="h-24 w-full object-cover rounded-xl" />
+                        <button 
+                          onClick={() => {
+                            const newImages = data.images.heroImages.filter((_: any, idx: number) => idx !== i);
+                            updateData(['images', 'heroImages'], newImages);
+                          }}
+                          className="absolute top-2 right-2 bg-red-500 text-white p-1 rounded opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                  <input 
+                    type="file" 
+                    onChange={async (e) => {
+                      const file = e.target.files?.[0];
+                      if (!file) return;
+                      const formData = new FormData();
+                      formData.append("file", file);
+                      const res = await fetch("/api/upload", { method: "POST", body: formData });
+                      const result = await res.json();
+                      if (result.success) {
+                        const newImages = [...(data.images?.heroImages || []), result.url];
+                        updateData(['images', 'heroImages'], newImages);
+                      } else alert("Upload failed");
+                    }} 
+                    className="w-full text-sm" 
+                  />
+                </div>
+
                 {/* Section Images */}
-                {['hero', 'about', 'services', 'sectors'].map((img) => (
+                {['about', 'services', 'sectors'].map((img) => (
                   <div key={img} className="border border-gray-200 dark:border-gray-700 p-4 rounded-2xl">
                     <label className="block text-sm font-bold mb-4 capitalize">{img} Section Image</label>
                     {data.images?.[img] && (

@@ -16,6 +16,7 @@ const ContentSchema = new mongoose.Schema(
     },
     images: {
       hero: { type: String, default: "" },
+      heroImages: [{ type: String }],
       about: { type: String, default: "/talent_about.png" },
       services: { type: String, default: "" },
       sectors: { type: String, default: "/talent_sectors.png" },

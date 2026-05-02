@@ -1,8 +1,9 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { useSiteData } from "@/context/DataContext";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { useModals } from "@/context/ModalContext";
 
@@ -11,16 +12,38 @@ export default function Hero() {
   const data = useSiteData();
   const { openModal } = useModals();
 
+  const heroImages = data.images?.heroImages?.length > 0 
+    ? data.images.heroImages 
+    : [data.images?.hero || "/talent_about.png"];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    if (heroImages.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+      }, 5000);
+      return () => clearInterval(interval);
+    }
+  }, [heroImages.length]);
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      {/* Background Image Slider */}
+      <div className="absolute inset-0 z-0 bg-slate-900">
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/40 z-10"></div>
-        <img 
-          src={data.images?.hero || "/talent_about.png"} 
-          alt="Hero Background" 
-          className="w-full h-full object-cover"
-        />
+        <AnimatePresence mode="popLayout">
+          <motion.img 
+            key={currentImageIndex}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            src={heroImages[currentImageIndex]} 
+            alt="Hero Background" 
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </AnimatePresence>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
