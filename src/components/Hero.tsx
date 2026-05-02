@@ -46,18 +46,18 @@ export default function Hero() {
             </span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-[1.1]">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-[1.2] md:leading-[1.1]">
             {language === "en" ? data.hero.title_en : data.hero.title_ar}
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed px-4">
             {language === "en" ? data.hero.subtitle_en : data.hero.subtitle_ar}
           </p>
 
-          <div className="pt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="pt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 px-4">
             <button
               onClick={() => openModal('request')}
-              className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 shadow-[0_0_40px_rgba(0,72,160,0.4)] cursor-pointer"
+              className="group relative w-full sm:w-auto inline-flex items-center justify-center px-6 py-4 md:px-8 md:py-4 text-base font-bold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 shadow-[0_0_40px_rgba(0,72,160,0.4)] cursor-pointer"
             >
               {language === "en" ? "Request Employees Now" : "اطلب موظفين الان"}
               {dir === "ltr" ? (
@@ -69,7 +69,7 @@ export default function Hero() {
             
             <button
               onClick={() => openModal('apply')}
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-green-600 dark:text-green-500 transition-all duration-200 bg-green-50 dark:bg-green-500/10 border-2 border-green-500 dark:border-green-500 rounded-full hover:bg-green-100 dark:hover:bg-green-500/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-4 md:px-8 md:py-4 text-base font-bold text-green-600 dark:text-green-500 transition-all duration-200 bg-green-50 dark:bg-green-500/10 border-2 border-green-500 dark:border-green-500 rounded-full hover:bg-green-100 dark:hover:bg-green-500/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 cursor-pointer"
             >
               {language === "en" ? "Apply for a Job Now" : "قدم على وظيفتك الان"}
             </button>

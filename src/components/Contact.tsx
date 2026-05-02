@@ -38,8 +38,8 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact-section" className="py-24 bg-slate-50 dark:bg-slate-900 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact-section" className="py-16 lg:py-24 bg-slate-50 dark:bg-slate-900 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}

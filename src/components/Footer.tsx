@@ -9,7 +9,7 @@ export default function Footer() {
   const data = useSiteData();
 
   return (
-    <footer id="contact" className="bg-slate-900 text-white pt-24 pb-12 border-t border-gray-800">
+    <footer id="contact" className="bg-slate-900 text-white pt-16 lg:pt-24 pb-8 lg:pb-12 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* CTA Section */}

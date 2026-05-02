@@ -12,7 +12,7 @@ export default function Services() {
   const icons = [Briefcase, Users, Plane, ShieldCheck];
 
   return (
-    <section id="services" className="py-24 bg-slate-50 dark:bg-slate-900/50">
+    <section id="services" className="py-16 lg:py-24 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
