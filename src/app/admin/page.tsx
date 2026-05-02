@@ -375,6 +375,60 @@ export default function AdminDashboard() {
                 </div>
 
                 <div>
+                  <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">Main Headings Color</label>
+                  <div className="flex gap-4 items-center">
+                    <input
+                      type="color"
+                      value={data.settings?.headingColor || "#111827"}
+                      onChange={(e) => updateData(['settings', 'headingColor'], e.target.value)}
+                      className="w-14 h-14 rounded cursor-pointer border-none"
+                    />
+                    <input
+                      type="text"
+                      value={data.settings?.headingColor || "#111827"}
+                      onChange={(e) => updateData(['settings', 'headingColor'], e.target.value)}
+                      className="flex-1 px-4 py-2 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-slate-900 outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">Subheadings Color</label>
+                  <div className="flex gap-4 items-center">
+                    <input
+                      type="color"
+                      value={data.settings?.subheadingColor || "#4b5563"}
+                      onChange={(e) => updateData(['settings', 'subheadingColor'], e.target.value)}
+                      className="w-14 h-14 rounded cursor-pointer border-none"
+                    />
+                    <input
+                      type="text"
+                      value={data.settings?.subheadingColor || "#4b5563"}
+                      onChange={(e) => updateData(['settings', 'subheadingColor'], e.target.value)}
+                      className="flex-1 px-4 py-2 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-slate-900 outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">Paragraphs/Text Color</label>
+                  <div className="flex gap-4 items-center">
+                    <input
+                      type="color"
+                      value={data.settings?.textColor || "#374151"}
+                      onChange={(e) => updateData(['settings', 'textColor'], e.target.value)}
+                      className="w-14 h-14 rounded cursor-pointer border-none"
+                    />
+                    <input
+                      type="text"
+                      value={data.settings?.textColor || "#374151"}
+                      onChange={(e) => updateData(['settings', 'textColor'], e.target.value)}
+                      className="flex-1 px-4 py-2 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-slate-900 outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div>
                   <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">Arabic Font</label>
                   <select 
                     value={data.settings?.arabicFont || "Cairo"}

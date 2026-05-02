@@ -66,6 +66,9 @@ export default async function RootLayout({
           :root {
             --primary: ${data.settings?.primaryColor || "#2563eb"};
             --secondary: ${data.settings?.secondaryColor || "#22c55e"};
+            --heading-color: ${data.settings?.headingColor || "#111827"};
+            --subheading-color: ${data.settings?.subheadingColor || "#4b5563"};
+            --text-color: ${data.settings?.textColor || "#374151"};
           }
           /* Custom CSS override for dynamic branding */
           .bg-blue-600 { background-color: var(--primary) !important; }
@@ -78,6 +81,11 @@ export default async function RootLayout({
           
           .from-blue-600 { --tw-gradient-from: var(--primary) !important; }
           .to-green-500 { --tw-gradient-to: var(--secondary) !important; }
+
+          /* Dynamic Text Colors */
+          h1, h2, h3, .text-gray-900 { color: var(--heading-color) !important; }
+          h4, h5, h6, .text-gray-800 { color: var(--subheading-color) !important; }
+          p, .text-gray-600, .text-gray-700 { color: var(--text-color) !important; }
         `}</style>
       </head>
       <body

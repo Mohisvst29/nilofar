@@ -7,6 +7,9 @@ const ContentSchema = new mongoose.Schema(
       logoSize: { type: Number, default: 40 },
       primaryColor: { type: String, default: "#2563eb" }, // blue-600
       secondaryColor: { type: String, default: "#22c55e" }, // green-500
+      headingColor: { type: String, default: "#111827" }, // gray-900
+      subheadingColor: { type: String, default: "#4b5563" }, // gray-600
+      textColor: { type: String, default: "#374151" }, // gray-700
       arabicFont: { type: String, default: "Cairo" },
       englishFont: { type: String, default: "Inter" },
     },
