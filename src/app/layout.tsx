@@ -41,6 +41,7 @@ async function getContent() {
     }
     return JSON.parse(JSON.stringify(content));
   } catch (error) {
+    console.error("Database connection failed in layout:", error);
     return defaultData;
   }
 }
