@@ -12,6 +12,14 @@ const ContentSchema = new mongoose.Schema(
       textColor: { type: String, default: "#374151" }, // gray-700
       arabicFont: { type: String, default: "Cairo" },
       englishFont: { type: String, default: "Inter" },
+      announcement: {
+        show: { type: Boolean, default: false },
+        text_ar: { type: String, default: "أهلاً بكم في نيلوفر لاستقطاب المواهب" },
+        text_en: { type: String, default: "Welcome to Nilofar Talent Acquisition" },
+        backgroundColor: { type: String, default: "#2563eb" },
+        textColor: { type: String, default: "#ffffff" },
+        size: { type: String, default: "medium" }, // small, medium, large
+      }
     },
     adminCredentials: {
       username: { type: String, default: "admin" },

@@ -336,7 +336,95 @@ export default function AdminDashboard() {
               <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
                 {language === "en" ? "Theme & Branding" : "الهوية والألوان"}
               </h3>
+
+              <div className="space-y-6">
+                <h4 className="text-xl font-bold border-b pb-2 mb-4 dark:border-gray-700">شريط الإعلانات (Announcement Bar)</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 bg-gray-50 dark:bg-slate-900 rounded-xl border border-gray-200 dark:border-gray-700">
+                  <div className="md:col-span-2 flex items-center justify-between">
+                    <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">تفعيل شريط الإعلانات أعلى الموقع</label>
+                    <button
+                      onClick={() => updateData(['settings', 'announcement', 'show'], !data.settings?.announcement?.show)}
+                      className={`w-14 h-7 flex items-center rounded-full p-1 transition-colors ${data.settings?.announcement?.show ? 'bg-blue-600' : 'bg-gray-300 dark:bg-gray-600'}`}
+                    >
+                      <div className={`bg-white w-5 h-5 rounded-full shadow-md transform transition-transform ${data.settings?.announcement?.show ? 'translate-x-7' : 'translate-x-0'}`}></div>
+                    </button>
+                  </div>
+                  
+                  {data.settings?.announcement?.show && (
+                    <>
+                      <div>
+                        <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">نص الإعلان (عربي)</label>
+                        <input
+                          type="text"
+                          value={data.settings?.announcement?.text_ar || ""}
+                          onChange={(e) => updateData(['settings', 'announcement', 'text_ar'], e.target.value)}
+                          className="w-full px-4 py-2 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-slate-800 outline-none"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">نص الإعلان (إنجليزي)</label>
+                        <input
+                          type="text"
+                          value={data.settings?.announcement?.text_en || ""}
+                          onChange={(e) => updateData(['settings', 'announcement', 'text_en'], e.target.value)}
+                          className="w-full px-4 py-2 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-slate-800 outline-none"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">لون الخلفية</label>
+                        <div className="flex gap-4 items-center">
+                          <input
+                            type="color"
+                            value={data.settings?.announcement?.backgroundColor || "#2563eb"}
+                            onChange={(e) => updateData(['settings', 'announcement', 'backgroundColor'], e.target.value)}
+                            className="w-10 h-10 rounded cursor-pointer border-none"
+                          />
+                          <input
+                            type="text"
+                            value={data.settings?.announcement?.backgroundColor || "#2563eb"}
+                            onChange={(e) => updateData(['settings', 'announcement', 'backgroundColor'], e.target.value)}
+                            className="flex-1 px-4 py-2 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-slate-800 outline-none"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">لون النص</label>
+                        <div className="flex gap-4 items-center">
+                          <input
+                            type="color"
+                            value={data.settings?.announcement?.textColor || "#ffffff"}
+                            onChange={(e) => updateData(['settings', 'announcement', 'textColor'], e.target.value)}
+                            className="w-10 h-10 rounded cursor-pointer border-none"
+                          />
+                          <input
+                            type="text"
+                            value={data.settings?.announcement?.textColor || "#ffffff"}
+                            onChange={(e) => updateData(['settings', 'announcement', 'textColor'], e.target.value)}
+                            className="flex-1 px-4 py-2 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-slate-800 outline-none"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="md:col-span-2">
+                        <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">حجم الشريط</label>
+                        <select 
+                          value={data.settings?.announcement?.size || "medium"}
+                          onChange={(e) => updateData(['settings', 'announcement', 'size'], e.target.value)}
+                          className="w-full px-4 py-3 bg-white dark:bg-slate-800 border border-gray-200 dark:border-gray-700 rounded-xl outline-none"
+                        >
+                          <option value="small">صغير (Small)</option>
+                          <option value="medium">متوسط (Medium)</option>
+                          <option value="large">كبير (Large)</option>
+                        </select>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
               
+              <h4 className="text-xl font-bold border-b pb-2 mb-4 mt-8 dark:border-gray-700">الألوان والخطوط الأساسية</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                   <label className="block text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">Primary Color</label>

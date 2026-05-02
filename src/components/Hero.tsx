@@ -28,7 +28,7 @@ export default function Hero() {
   }, [heroImages.length]);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden -mt-20">
       {/* Background Image Slider / Video */}
       <div className="absolute inset-0 z-0 bg-slate-900">
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/40 z-10"></div>

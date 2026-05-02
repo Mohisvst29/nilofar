@@ -11,6 +11,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FormsModal from "@/components/FormsModal";
 import FloatingButtons from "@/components/FloatingButtons";
+import AnnouncementBar from "@/components/AnnouncementBar";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const cairo = Cairo({ subsets: ["arabic"], variable: "--font-cairo" });
@@ -106,8 +107,9 @@ export default async function RootLayout({
           <DataProvider data={data}>
             <ModalProvider>
               <div style={{ fontFamily: "inherit" }} className="font-dynamic flex-grow flex flex-col">
+                <AnnouncementBar />
                 <Navbar />
-                <div className="flex-grow pt-20">
+                <div className="flex-grow">
                   {children}
                 </div>
                 <Footer />

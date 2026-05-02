@@ -9,6 +9,14 @@ export const data = {
     textColor: "#374151",
     arabicFont: "Cairo",
     englishFont: "Inter",
+    announcement: {
+      show: false,
+      text_ar: "أهلاً بكم في نيلوفر لاستقطاب المواهب",
+      text_en: "Welcome to Nilofar Talent Acquisition",
+      backgroundColor: "#2563eb",
+      textColor: "#ffffff",
+      size: "medium",
+    }
   },
   seo: {
     title_ar: "نيلوفر | لاستقطاب الكفاءات والمواهب",
