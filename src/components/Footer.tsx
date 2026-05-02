@@ -113,7 +113,7 @@ export default function Footer() {
               {language === "en" ? "Global Presence" : "التواجد العالمي"}
             </h3>
             <ul className="grid grid-cols-2 gap-3">
-              {(language === "en" ? data.global_presence.countries_en : data.global_presence.countries_ar).map((country, idx) => (
+              {(language === "en" ? data.global_presence?.countries_en : data.global_presence?.countries_ar)?.map((country: string, idx: number) => (
                 <li key={idx} className="text-gray-400 flex items-center gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
                   {country}

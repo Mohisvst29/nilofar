@@ -32,7 +32,7 @@ export default function Advantages() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {data.advantages.map((adv, index) => {
+          {data.advantages?.map((adv: any, index: number) => {
             const Icon = icons[index % icons.length];
             return (
               <motion.div
