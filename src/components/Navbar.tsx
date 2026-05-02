@@ -31,9 +31,6 @@ export default function Navbar() {
                   N
                 </div>
               )}
-              <span className="font-bold text-lg sm:text-xl tracking-tight text-gray-900 dark:text-white">
-                {language === "en" ? "Nilofar Talent" : "نيلوفر للمواهب"}
-              </span>
             </motion.div>
           </a>
 
