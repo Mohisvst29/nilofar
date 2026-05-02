@@ -82,10 +82,20 @@ export default async function RootLayout({
           .from-blue-600 { --tw-gradient-from: var(--primary) !important; }
           .to-green-500 { --tw-gradient-to: var(--secondary) !important; }
 
-          /* Dynamic Text Colors */
-          h1, h2, h3, .text-gray-900 { color: var(--heading-color) !important; }
-          h4, h5, h6, .text-gray-800 { color: var(--subheading-color) !important; }
-          p, .text-gray-600, .text-gray-700 { color: var(--text-color) !important; }
+          /* Dynamic Text Colors - Only apply in Light Mode and exclude Hero */
+          html:not(.dark) section:not(#home) h1, 
+          html:not(.dark) section:not(#home) h2, 
+          html:not(.dark) section:not(#home) h3, 
+          html:not(.dark) section:not(#home) .text-gray-900 { color: var(--heading-color) !important; }
+          
+          html:not(.dark) section:not(#home) h4, 
+          html:not(.dark) section:not(#home) h5, 
+          html:not(.dark) section:not(#home) h6, 
+          html:not(.dark) section:not(#home) .text-gray-800 { color: var(--subheading-color) !important; }
+          
+          html:not(.dark) section:not(#home) p, 
+          html:not(.dark) section:not(#home) .text-gray-600, 
+          html:not(.dark) section:not(#home) .text-gray-700 { color: var(--text-color) !important; }
         `}</style>
       </head>
       <body

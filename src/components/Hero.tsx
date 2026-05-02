@@ -70,11 +70,11 @@ export default function Hero() {
             </span>
           </div>
           
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-[1.2] md:leading-[1.1]">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.2] md:leading-[1.1] drop-shadow-lg">
             {language === "en" ? data.hero.title_en : data.hero.title_ar}
           </h1>
           
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed px-4">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-100 max-w-2xl mx-auto leading-relaxed px-4 drop-shadow-md">
             {language === "en" ? data.hero.subtitle_en : data.hero.subtitle_ar}
           </p>
 
