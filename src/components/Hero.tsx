@@ -4,7 +4,6 @@ import { useLanguage } from "@/context/LanguageContext";
 import { useSiteData } from "@/context/DataContext";
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
-import Scene3D from "./Scene3D";
 import { useModals } from "@/context/ModalContext";
 
 export default function Hero() {
@@ -14,23 +13,14 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      {/* Video/Image/3D Background */}
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        {data.images?.hero ? (
-          <>
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/40 z-10"></div>
-            <img 
-              src={data.images.hero} 
-              alt="Hero Background" 
-              className="w-full h-full object-cover"
-            />
-          </>
-        ) : (
-          <>
-            <Scene3D />
-            <div className="absolute inset-0 bg-white/70 dark:bg-black/70 backdrop-blur-sm pointer-events-none"></div>
-          </>
-        )}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/40 z-10"></div>
+        <img 
+          src={data.images?.hero || "/talent_about.png"} 
+          alt="Hero Background" 
+          className="w-full h-full object-cover"
+        />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
