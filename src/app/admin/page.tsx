@@ -96,16 +96,30 @@ export default function AdminDashboard() {
     const file = e.target.files?.[0];
     if (!file) return;
 
+    if (file.size > 4 * 1024 * 1024) {
+      alert(language === "en" ? "File is too large! Maximum allowed size is 4MB." : "عذراً، حجم الملف كبير جداً! الحد الأقصى المسموح به هو 4 ميجابايت فقط.");
+      return;
+    }
+
     const formData = new FormData();
     formData.append("file", file);
 
-    const res = await fetch("/api/upload", { method: "POST", body: formData });
-    const result = await res.json();
+    try {
+      const res = await fetch("/api/upload", { method: "POST", body: formData });
+      if (!res.ok) {
+        throw new Error("Server error or file too large");
+      }
+      const result = await res.json();
 
-    if (result.success) {
-      updateData(path, result.url);
-    } else {
-      alert("Upload failed");
+      if (result.success) {
+        updateData(path, result.url);
+        alert(language === "en" ? "Uploaded successfully! Remember to click Save Changes." : "تم رفع الصورة بنجاح! لا تنسَ الضغط على زر حفظ التعديلات بالأسفل.");
+      } else {
+        alert("Upload failed: " + result.error);
+      }
+    } catch (error) {
+      console.error(error);
+      alert(language === "en" ? "Upload failed! The file might be too large or network issue." : "فشل الرفع! قد يكون حجم الملف كبيراً جداً (أكثر من 4 ميجا) أو هناك مشكلة في الاتصال.");
     }
   };
 
@@ -440,14 +454,27 @@ export default function AdminDashboard() {
                     onChange={async (e) => {
                       const file = e.target.files?.[0];
                       if (!file) return;
+                      
+                      if (file.size > 4 * 1024 * 1024) {
+                        alert(language === "en" ? "File is too large! Maximum allowed size is 4MB." : "حجم الملف كبير جداً! الحد الأقصى 4 ميجابايت.");
+                        return;
+                      }
+
                       const formData = new FormData();
                       formData.append("file", file);
-                      const res = await fetch("/api/upload", { method: "POST", body: formData });
-                      const result = await res.json();
-                      if (result.success) {
-                        const newImages = [...(data.images?.heroImages || []), result.url];
-                        updateData(['images', 'heroImages'], newImages);
-                      } else alert("Upload failed");
+                      
+                      try {
+                        const res = await fetch("/api/upload", { method: "POST", body: formData });
+                        if (!res.ok) throw new Error("Upload error");
+                        const result = await res.json();
+                        if (result.success) {
+                          const newImages = [...(data.images?.heroImages || []), result.url];
+                          updateData(['images', 'heroImages'], newImages);
+                          alert(language === "en" ? "Uploaded successfully! Remember to click Save Changes." : "تم رفع الصورة! لا تنسَ الضغط على حفظ التعديلات.");
+                        } else alert("Upload failed");
+                      } catch (err) {
+                        alert(language === "en" ? "Upload failed! The file might be too large." : "فشل الرفع! قد يكون حجم الملف كبيراً جداً.");
+                      }
                     }} 
                     className="w-full text-sm" 
                   />
