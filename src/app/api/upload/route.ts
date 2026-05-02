@@ -12,7 +12,7 @@ export async function POST(req: Request) {
 
     const uploadResponse: any = await new Promise((resolve, reject) => {
       cloudinary.uploader.upload_stream(
-        { folder: "nilofar" },
+        { folder: "nilofar", resource_type: "auto" },
         (error, result) => {
           if (error) reject(error);
           else resolve(result);

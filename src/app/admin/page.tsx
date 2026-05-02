@@ -453,6 +453,16 @@ export default function AdminDashboard() {
                   />
                 </div>
 
+                {/* Hero Video */}
+                <div className="border border-gray-200 dark:border-gray-700 p-4 rounded-2xl md:col-span-2">
+                  <label className="block text-sm font-bold mb-4">Hero Background Video</label>
+                  {data.images?.heroVideo && (
+                    <video src={data.images.heroVideo} controls className="h-48 w-full object-cover mb-4 rounded-xl" />
+                  )}
+                  <input type="file" accept="video/*" onChange={(e) => handleUpload(e, ['images', 'heroVideo'])} className="w-full text-sm" />
+                  <p className="text-xs text-gray-500 mt-2">If a video is uploaded, it will override the image slider.</p>
+                </div>
+
                 {/* Section Images */}
                 {['about', 'services', 'sectors'].map((img) => (
                   <div key={img} className="border border-gray-200 dark:border-gray-700 p-4 rounded-2xl">

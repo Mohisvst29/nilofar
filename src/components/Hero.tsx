@@ -29,21 +29,32 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      {/* Background Image Slider */}
+      {/* Background Image Slider / Video */}
       <div className="absolute inset-0 z-0 bg-slate-900">
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/40 z-10"></div>
-        <AnimatePresence mode="popLayout">
-          <motion.img 
-            key={currentImageIndex}
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            src={heroImages[currentImageIndex]} 
-            alt="Hero Background" 
+        {data.images?.heroVideo ? (
+          <video 
+            src={data.images.heroVideo} 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
             className="absolute inset-0 w-full h-full object-cover"
           />
-        </AnimatePresence>
+        ) : (
+          <AnimatePresence mode="popLayout">
+            <motion.img 
+              key={currentImageIndex}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              src={heroImages[currentImageIndex]} 
+              alt="Hero Background" 
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </AnimatePresence>
+        )}
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
