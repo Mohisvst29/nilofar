@@ -148,6 +148,10 @@ export default function Footer() {
           <p>
             &copy; {new Date().getFullYear()} {language === "en" ? data.company.name_en : data.company.name_ar}. {language === "en" ? "All rights reserved." : "جميع الحقوق محفوظة."}
           </p>
+          <div className="flex flex-col items-center md:items-end text-gray-400">
+            <p>معتمد من وزارة الموارد البشريّة والتنمية الاجتماعية</p>
+            <p className="font-mono mt-1" dir="ltr">FL-054282081</p>
+          </div>
         </div>
       </div>
     </footer>
